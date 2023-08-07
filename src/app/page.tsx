@@ -16,13 +16,33 @@ export default function Home() {
         {
           id: 21,
           label: 'ejemplo',
+          component: 'test'
         },
         {
           id: 22,
-          label: 'ejemplo',
+          label: 'test',
+          children: [ 
+            {
+              id: 24,
+              label: 'hola2',
+              children: [
+                {
+                  id: 29,
+                  label: 'hola',
+                  component: 'test'
+                },
+              ]
+             
+            },
+            {
+              id: 25,
+              label: 'ejemplo',
+              component: 'test'
+            },
+          ]
         },
       ],
-      component: null
+      
     },
     {
       id: 2,
@@ -32,13 +52,16 @@ export default function Home() {
     {
       id: 3,
       label: 'Conteo Pallet',
-      component: null
+      component: 'test'
     },
   ];
 
+  const renderComponent = ()=>{
+    console.log('Render Component');
+  }
 
 
   return (
-    <DropDown menu={menuTree}></DropDown>
+    <DropDown menu={menuTree} renderComponenet={renderComponent}></DropDown>
   )
 }
